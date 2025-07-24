@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Don't Tap the Glass</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="glass-container">
+    <div class="hero-content">
+      <h1>Don't Tap the Glass</h1>
+      <p>Something is watching...</p>
+    </div>
+    <div class="eye" id="eye" aria-label="Eye watching you"></div>
+    <canvas id="glassCanvas" tabindex="0" aria-label="Glass canvas"></canvas>
+    <div class="cracks-remaining" id="cracksLeft"></div>
+    <div class="jumpscare" id="jumpscare" aria-label="Jumpscare image"></div>
+    <button id="resetBtn" aria-label="Reset the game">Reset</button>
+  </div>
+  <audio id="tapSound" src="sounds/tap.mp3"></audio>
+  <audio id="crackSound" src="sounds/crack.mp3"></audio>
+  <audio id="screamSound" src="sounds/jumpscare.mp3"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
