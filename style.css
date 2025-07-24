@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #222;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glass-container {
+  position: relative;
+  background: rgba(255,255,255,0.15);
+  border-radius: 25px;
+  box-shadow: 0 8px 32px rgba(31,38,135,0.37), 0 1.5px 16px #0006;
+  overflow: hidden;
+  padding: 36px 36px 30px 36px;
+}
+
+.hero-content {
+  position: absolute;
+  left: 52px; top: 32px;
+  z-index: 10;
+  pointer-events: none;
+  color: #eaf6ff;
+  text-shadow: 0 2px 12px #000c;
+}
+
+.eye {
+  position: absolute;
+  top: 90px; left: 50%; transform: translateX(-50%);
+  width: 96px; height: 96px;
+  background: radial-gradient(circle at 38% 38%, #fff 60%, #000 100%);
+  border-radius: 90px 60px;
+  border: 2px solid #2226;
+  box-shadow: 0 4px 32px #111e;
+  display: flex;
+  justify-content: center; align-items: center;
+  z-index: 2;
+  transition: box-shadow 0.3s;
+  overflow: hidden;
+}
+
+.eye::before {
+  content: '';
+  display: block;
+  width: 30px; height: 30px;
+  background: #111b;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 3px 12px #000d;
+}
+
+canvas#glassCanvas {
+  display: block;
+  background: linear-gradient(120deg, #aeefff33 0%, #fff9 92%);
+  border: 2.5px solid #eef7fb66;
+  border-radius: 18px;
+  margin-top: 60px;
+  width: 340px; height: 400px;
+  max-width: 88vw;
+  max-height: 60vh;
+  transition: box-shadow 0.15s;
+  z-index: 1;
+}
+
+.cracks-remaining {
+  position: absolute;
+  right: 26px; top: 20px;
+  font-size: 1.25rem;
+  color: #e9353b;
+  background: rgba(255,255,255,0.11);
+  border-radius: 7px;
+  padding: 4px 10px;
+  z-index: 111;
+  letter-spacing: 1px;
+  font-weight: bold;
+  box-shadow: 0 1.5px 10px #0002;
+}
+
+.jumpscare {
+  display: none;
+  position: fixed;
+  top:0; left:0;
+  width: 100vw; height: 100vh;
+  background: rgba(25,7,12,0.9) url("images/jumpscare.png") center center / contain no-repeat;
+  z-index: 9999;
+  animation: shake 0.8s cubic-bezier(0.7, 0, 0.84, 0.33) 1;
+}
+
+.jumpscare.active {
+  display: block;
+  animation: jumpscare-anim 0.55s cubic-bezier(.99,0,.53,1.16) 1;
+}
+
+@keyframes jumpscare-anim {
+  0% { opacity:0; transform: scale(0.5);}
+  40% { opacity:1;transform: scale(1.03);}
+  75% { transform: scale(1.07);}
+  100% {opacity:1;transform:scale(1);}
+}
+
+#resetBtn {
+  position: absolute;
+  bottom: 12px; right: 18px;
+  z-index: 200;
+  background: #f9faf9;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 14px;
+  font-size: 1rem;
+  color: #153540;
+  box-shadow: 0 1px 6px #0033;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.2s,color .2s;
+}
+#resetBtn:hover {
+  background: #fd5356;
+  color: #fff;
+}
+
+@media (max-width: 590px) {
+  .glass-container { padding: 12px 2vw; }
+  canvas#glassCanvas { margin-top:32px;}
+  .eye { width:70px; height:70px; top:54px;}
